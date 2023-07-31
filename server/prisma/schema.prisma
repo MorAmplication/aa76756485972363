@@ -6,3 +6,9 @@ datasource postgres {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Test {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
