@@ -5,6 +5,18 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { UserList } from "./user/UserList";
+import { UserCreate } from "./user/UserCreate";
+import { UserEdit } from "./user/UserEdit";
+import { UserShow } from "./user/UserShow";
+import { EventList } from "./event/EventList";
+import { EventCreate } from "./event/EventCreate";
+import { EventEdit } from "./event/EventEdit";
+import { EventShow } from "./event/EventShow";
+import { SessionList } from "./session/SessionList";
+import { SessionCreate } from "./session/SessionCreate";
+import { SessionEdit } from "./session/SessionEdit";
+import { SessionShow } from "./session/SessionShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +42,29 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="User"
+          list={UserList}
+          edit={UserEdit}
+          create={UserCreate}
+          show={UserShow}
+        />
+        <Resource
+          name="Event"
+          list={EventList}
+          edit={EventEdit}
+          create={EventCreate}
+          show={EventShow}
+        />
+        <Resource
+          name="Session"
+          list={SessionList}
+          edit={SessionEdit}
+          create={SessionCreate}
+          show={SessionShow}
+        />
+      </Admin>
     </div>
   );
 };

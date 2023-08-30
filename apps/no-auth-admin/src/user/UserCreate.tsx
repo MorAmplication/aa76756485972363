@@ -7,11 +7,8 @@ import {
   TextInput,
   PasswordInput,
   SelectArrayInput,
-  ReferenceInput,
-  SelectInput,
 } from "react-admin";
 
-import { MorTitle } from "../mor/MorTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
 export const UserCreate = (props: CreateProps): React.ReactElement => {
@@ -28,9 +25,6 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
           optionText="label"
           optionValue="value"
         />
-        <ReferenceInput source="mor.id" reference="Mor" label="Mor">
-          <SelectInput optionText={MorTitle} />
-        </ReferenceInput>
       </SimpleForm>
     </Create>
   );
