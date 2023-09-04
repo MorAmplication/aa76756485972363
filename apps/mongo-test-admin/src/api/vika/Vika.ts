@@ -6,4 +6,5 @@ export type Vika = {
   updatedAt: Date;
   user?: User | null;
   mor: string | null;
+  rdyjwe: string | null;
 };

@@ -17,6 +17,7 @@ export const VikaEdit = (props: EditProps): React.ReactElement => {
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
         <TextInput label="mor" source="mor" />
+        <TextInput label="rdyjwe" source="rdyjwe" />
       </SimpleForm>
     </Edit>
   );

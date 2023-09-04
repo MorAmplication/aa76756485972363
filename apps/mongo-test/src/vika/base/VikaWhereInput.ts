@@ -52,6 +52,17 @@ class VikaWhereInput {
     nullable: true,
   })
   mor?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  rdyjwe?: StringNullableFilter;
 }
 
 export { VikaWhereInput as VikaWhereInput };

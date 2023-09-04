@@ -27,6 +27,7 @@ export const VikaList = (props: ListProps): React.ReactElement => {
           <TextField source={USER_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="mor" source="mor" />
+        <TextField label="rdyjwe" source="rdyjwe" />
       </Datagrid>
     </List>
   );

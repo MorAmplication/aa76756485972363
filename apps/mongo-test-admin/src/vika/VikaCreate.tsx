@@ -17,6 +17,7 @@ export const VikaCreate = (props: CreateProps): React.ReactElement => {
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
         <TextInput label="mor" source="mor" />
+        <TextInput label="rdyjwe" source="rdyjwe" />
       </SimpleForm>
     </Create>
   );
