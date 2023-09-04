@@ -26,7 +26,6 @@ import { VikaCountArgs } from "./VikaCountArgs";
 import { VikaFindManyArgs } from "./VikaFindManyArgs";
 import { VikaFindUniqueArgs } from "./VikaFindUniqueArgs";
 import { Vika } from "./Vika";
-import { User } from "../../user/base/User";
 import { VikaService } from "../vika.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Vika)
@@ -87,15 +86,7 @@ export class VikaResolverBase {
   async createVika(@graphql.Args() args: CreateVikaArgs): Promise<Vika> {
     return await this.service.create({
       ...args,
-      data: {
-        ...args.data,
-
-        user: args.data.user
-          ? {
-              connect: args.data.user,
-            }
-          : undefined,
-      },
+      data: args.data,
     });
   }
 
@@ -110,15 +101,7 @@ export class VikaResolverBase {
     try {
       return await this.service.update({
         ...args,
-        data: {
-          ...args.data,
-
-          user: args.data.user
-            ? {
-                connect: args.data.user,
-              }
-            : undefined,
-        },
+        data: args.data,
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -147,24 +130,5 @@ export class VikaResolverBase {
       }
       throw error;
     }
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => User, {
-    nullable: true,
-    name: "user",
-  })
-  @nestAccessControl.UseRoles({
-    resource: "User",
-    action: "read",
-    possession: "any",
-  })
-  async resolveFieldUser(@graphql.Parent() parent: Vika): Promise<User | null> {
-    const result = await this.service.getUser(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
   }
 }

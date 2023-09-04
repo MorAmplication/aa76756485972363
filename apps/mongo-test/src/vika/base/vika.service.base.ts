@@ -10,7 +10,7 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, Vika, User } from "@prisma/client";
+import { Prisma, Vika } from "@prisma/client";
 
 export class VikaServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -45,13 +45,5 @@ export class VikaServiceBase {
     args: Prisma.SelectSubset<T, Prisma.VikaDeleteArgs>
   ): Promise<Vika> {
     return this.prisma.vika.delete(args);
-  }
-
-  async getUser(parentId: string): Promise<User | null> {
-    return this.prisma.vika
-      .findUnique({
-        where: { id: parentId },
-      })
-      .user();
   }
 }

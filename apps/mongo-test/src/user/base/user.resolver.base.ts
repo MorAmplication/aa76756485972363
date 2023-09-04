@@ -26,8 +26,6 @@ import { UserCountArgs } from "./UserCountArgs";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { User } from "./User";
-import { VikaFindManyArgs } from "../../vika/base/VikaFindManyArgs";
-import { Vika } from "../../vika/base/Vika";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => User)
@@ -132,25 +130,5 @@ export class UserResolverBase {
       }
       throw error;
     }
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [Vika], { name: "vikas" })
-  @nestAccessControl.UseRoles({
-    resource: "Vika",
-    action: "read",
-    possession: "any",
-  })
-  async resolveFieldVikas(
-    @graphql.Parent() parent: User,
-    @graphql.Args() args: VikaFindManyArgs
-  ): Promise<Vika[]> {
-    const results = await this.service.findVikas(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
   }
 }

@@ -48,26 +48,11 @@ export class VikaControllerBase {
   })
   async create(@common.Body() data: VikaCreateInput): Promise<Vika> {
     return await this.service.create({
-      data: {
-        ...data,
-
-        user: data.user
-          ? {
-              connect: data.user,
-            }
-          : undefined,
-      },
+      data: data,
       select: {
         id: true,
         createdAt: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
-
         mor: true,
         rdyjwe: true,
         ljBgljbl: true,
@@ -95,13 +80,6 @@ export class VikaControllerBase {
         id: true,
         createdAt: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
-
         mor: true,
         rdyjwe: true,
         ljBgljbl: true,
@@ -130,13 +108,6 @@ export class VikaControllerBase {
         id: true,
         createdAt: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
-
         mor: true,
         rdyjwe: true,
         ljBgljbl: true,
@@ -169,26 +140,11 @@ export class VikaControllerBase {
     try {
       return await this.service.update({
         where: params,
-        data: {
-          ...data,
-
-          user: data.user
-            ? {
-                connect: data.user,
-              }
-            : undefined,
-        },
+        data: data,
         select: {
           id: true,
           createdAt: true,
           updatedAt: true,
-
-          user: {
-            select: {
-              id: true,
-            },
-          },
-
           mor: true,
           rdyjwe: true,
           ljBgljbl: true,
@@ -225,13 +181,6 @@ export class VikaControllerBase {
           id: true,
           createdAt: true,
           updatedAt: true,
-
-          user: {
-            select: {
-              id: true,
-            },
-          },
-
           mor: true,
           rdyjwe: true,
           ljBgljbl: true,
