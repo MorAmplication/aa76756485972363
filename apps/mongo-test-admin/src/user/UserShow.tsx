@@ -34,6 +34,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             </ReferenceField>
             <TextField label="mor" source="mor" />
             <TextField label="rdyjwe" source="rdyjwe" />
+            <TextField label="lj,bgljbl" source="ljBgljbl" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>

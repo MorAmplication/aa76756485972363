@@ -27,4 +27,5 @@ model Vika {
   userId    String?
   mor       String?  @customtest
   rdyjwe    String?
+  ljBgljbl  String?
 }

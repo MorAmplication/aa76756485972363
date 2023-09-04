@@ -18,6 +18,7 @@ export const VikaCreate = (props: CreateProps): React.ReactElement => {
         </ReferenceInput>
         <TextInput label="mor" source="mor" />
         <TextInput label="rdyjwe" source="rdyjwe" />
+        <TextInput label="lj,bgljbl" source="ljBgljbl" />
       </SimpleForm>
     </Create>
   );

@@ -71,6 +71,17 @@ class Vika {
     nullable: true,
   })
   rdyjwe!: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  ljBgljbl!: string | null;
 }
 
 export { Vika as Vika };

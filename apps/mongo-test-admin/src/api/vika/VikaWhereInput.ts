@@ -7,4 +7,5 @@ export type VikaWhereInput = {
   user?: UserWhereUniqueInput;
   mor?: StringNullableFilter;
   rdyjwe?: StringNullableFilter;
+  ljBgljbl?: StringNullableFilter;
 };

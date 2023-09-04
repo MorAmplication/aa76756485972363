@@ -7,4 +7,5 @@ export type VikaOrderByInput = {
   userId?: SortOrder;
   mor?: SortOrder;
   rdyjwe?: SortOrder;
+  ljBgljbl?: SortOrder;
 };
