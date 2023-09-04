@@ -16,4 +16,5 @@ model User {
   username  String   @unique
   password  String
   roles     Json
+  bgljbgl   String?
 }

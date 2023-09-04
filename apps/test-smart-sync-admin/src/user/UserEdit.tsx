@@ -23,6 +23,7 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
           optionText="label"
           optionValue="value"
         />
+        <TextInput label="bgljbgl" source="bgljbgl" />
       </SimpleForm>
     </Edit>
   );
