@@ -25,6 +25,7 @@ const CREATE_INPUT = {
   startDate: new Date(),
   endDate: new Date(),
   location: "exampleLocation",
+  check: "exampleCheck",
 };
 const CREATE_RESULT = {
   id: "exampleId",
@@ -33,6 +34,7 @@ const CREATE_RESULT = {
   startDate: new Date(),
   endDate: new Date(),
   location: "exampleLocation",
+  check: "exampleCheck",
 };
 const FIND_MANY_RESULT = [
   {
@@ -42,6 +44,7 @@ const FIND_MANY_RESULT = [
     startDate: new Date(),
     endDate: new Date(),
     location: "exampleLocation",
+    check: "exampleCheck",
   },
 ];
 const FIND_ONE_RESULT = {
@@ -51,6 +54,7 @@ const FIND_ONE_RESULT = {
   startDate: new Date(),
   endDate: new Date(),
   location: "exampleLocation",
+  check: "exampleCheck",
 };
 
 const service = {

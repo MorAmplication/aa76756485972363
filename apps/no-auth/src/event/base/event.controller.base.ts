@@ -59,6 +59,7 @@ export class EventControllerBase {
         startDate: true,
         endDate: true,
         location: true,
+        check: true,
       },
     });
   }
@@ -86,6 +87,7 @@ export class EventControllerBase {
         startDate: true,
         endDate: true,
         location: true,
+        check: true,
       },
     });
   }
@@ -114,6 +116,7 @@ export class EventControllerBase {
         startDate: true,
         endDate: true,
         location: true,
+        check: true,
       },
     });
     if (result === null) {
@@ -151,6 +154,7 @@ export class EventControllerBase {
           startDate: true,
           endDate: true,
           location: true,
+          check: true,
         },
       });
     } catch (error) {
@@ -187,6 +191,7 @@ export class EventControllerBase {
           startDate: true,
           endDate: true,
           location: true,
+          check: true,
         },
       });
     } catch (error) {

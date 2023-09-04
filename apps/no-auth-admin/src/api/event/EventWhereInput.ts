@@ -1,6 +1,7 @@
 import { StringFilter } from "../../util/StringFilter";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { SessionListRelationFilter } from "../session/SessionListRelationFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 export type EventWhereInput = {
   id?: StringFilter;
@@ -10,4 +11,5 @@ export type EventWhereInput = {
   endDate?: DateTimeFilter;
   location?: StringFilter;
   sessions?: SessionListRelationFilter;
+  check?: StringNullableFilter;
 };

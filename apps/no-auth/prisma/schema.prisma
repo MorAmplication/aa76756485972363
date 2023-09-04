@@ -26,6 +26,7 @@ model Event {
   endDate     DateTime
   location    String
   sessions    Session[]
+  check       String?
 }
 
 model Session {

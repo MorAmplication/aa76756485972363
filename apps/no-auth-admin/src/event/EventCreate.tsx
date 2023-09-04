@@ -29,6 +29,7 @@ export const EventCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={SessionTitle} />
         </ReferenceArrayInput>
+        <TextInput label="check" source="check" />
       </SimpleForm>
     </Create>
   );

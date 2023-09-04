@@ -7,4 +7,5 @@ export type EventUpdateInput = {
   endDate?: Date;
   location?: string;
   sessions?: SessionUpdateManyWithoutEventsInput;
+  check?: string | null;
 };

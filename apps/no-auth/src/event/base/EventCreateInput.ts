@@ -68,6 +68,17 @@ class EventCreateInput {
     nullable: true,
   })
   sessions?: SessionCreateNestedManyWithoutEventsInput;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  check?: string | null;
 }
 
 export { EventCreateInput as EventCreateInput };

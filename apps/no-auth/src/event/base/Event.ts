@@ -73,6 +73,17 @@ class Event {
   @Type(() => Session)
   @IsOptional()
   sessions?: Array<Session>;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  check!: string | null;
 }
 
 export { Event as Event };

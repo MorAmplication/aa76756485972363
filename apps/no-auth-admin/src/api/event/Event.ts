@@ -8,4 +8,5 @@ export type Event = {
   endDate: Date;
   location: string;
   sessions?: Array<Session>;
+  check: string | null;
 };
