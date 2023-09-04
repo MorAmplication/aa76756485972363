@@ -83,17 +83,6 @@ class EventUpdateInput {
     nullable: true,
   })
   sessions?: SessionUpdateManyWithoutEventsInput;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  check?: string | null;
 }
 
 export { EventUpdateInput as EventUpdateInput };

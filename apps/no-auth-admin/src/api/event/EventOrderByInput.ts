@@ -7,5 +7,4 @@ export type EventOrderByInput = {
   startDate?: SortOrder;
   endDate?: SortOrder;
   location?: SortOrder;
-  check?: SortOrder;
 };

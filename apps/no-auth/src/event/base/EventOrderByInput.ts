@@ -84,17 +84,6 @@ class EventOrderByInput {
     nullable: true,
   })
   location?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  check?: SortOrder;
 }
 
 export { EventOrderByInput as EventOrderByInput };
