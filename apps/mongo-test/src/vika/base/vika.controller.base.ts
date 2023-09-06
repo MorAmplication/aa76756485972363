@@ -55,6 +55,7 @@ export class VikaControllerBase {
         updatedAt: true,
         mor: true,
         rdyjwe: true,
+        test: true,
       },
     });
   }
@@ -81,6 +82,7 @@ export class VikaControllerBase {
         updatedAt: true,
         mor: true,
         rdyjwe: true,
+        test: true,
       },
     });
   }
@@ -108,6 +110,7 @@ export class VikaControllerBase {
         updatedAt: true,
         mor: true,
         rdyjwe: true,
+        test: true,
       },
     });
     if (result === null) {
@@ -144,6 +147,7 @@ export class VikaControllerBase {
           updatedAt: true,
           mor: true,
           rdyjwe: true,
+          test: true,
         },
       });
     } catch (error) {
@@ -179,6 +183,7 @@ export class VikaControllerBase {
           updatedAt: true,
           mor: true,
           rdyjwe: true,
+          test: true,
         },
       });
     } catch (error) {

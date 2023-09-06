@@ -5,4 +5,5 @@ export type VikaWhereInput = {
   id?: StringFilter;
   mor?: StringNullableFilter;
   rdyjwe?: StringNullableFilter;
+  test?: StringNullableFilter;
 };

@@ -16,6 +16,7 @@ export const VikaShow = (props: ShowProps): React.ReactElement => {
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="mor" source="mor" />
         <TextField label="rdyjwe" source="rdyjwe" />
+        <TextField label="test" source="test" />
       </SimpleShowLayout>
     </Show>
   );

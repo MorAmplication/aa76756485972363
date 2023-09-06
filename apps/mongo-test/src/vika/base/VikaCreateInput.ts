@@ -36,6 +36,17 @@ class VikaCreateInput {
     nullable: true,
   })
   rdyjwe?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  test?: string | null;
 }
 
 export { VikaCreateInput as VikaCreateInput };

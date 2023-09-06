@@ -7,6 +7,7 @@ export const VikaEdit = (props: EditProps): React.ReactElement => {
       <SimpleForm>
         <TextInput label="mor" source="mor" />
         <TextInput label="rdyjwe" source="rdyjwe" />
+        <TextInput label="test" source="test" />
       </SimpleForm>
     </Edit>
   );
