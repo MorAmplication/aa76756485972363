@@ -4,5 +4,4 @@ export type Vika = {
   updatedAt: Date;
   mor: string | null;
   rdyjwe: string | null;
-  ljBgljbl: string | null;
 };

@@ -17,7 +17,6 @@ export const VikaList = (props: ListProps): React.ReactElement => {
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="mor" source="mor" />
         <TextField label="rdyjwe" source="rdyjwe" />
-        <TextField label="lj,bgljbl" source="ljBgljbl" />
       </Datagrid>
     </List>
   );

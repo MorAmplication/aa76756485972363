@@ -24,5 +24,4 @@ model Vika {
   updatedAt DateTime @updatedAt
   mor       String?  @customtest
   rdyjwe    String?
-  ljBgljbl  String?
 }
