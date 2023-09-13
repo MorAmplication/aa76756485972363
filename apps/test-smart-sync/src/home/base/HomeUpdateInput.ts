@@ -41,7 +41,7 @@ class HomeUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  test?: string | null;
+  test?: string;
 
   @ApiProperty({
     required: false,
@@ -52,7 +52,7 @@ class HomeUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  amit?: string | null;
+  amit?: string;
 
   @ApiProperty({
     required: false,
@@ -63,7 +63,7 @@ class HomeUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  avi?: string | null;
+  avi?: string;
 
   @ApiProperty({
     required: false,

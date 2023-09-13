@@ -3,9 +3,9 @@ import { InputJsonValue } from "../../types";
 
 export type HomeCreateInput = {
   user?: UserWhereUniqueInput | null;
-  test?: string | null;
-  amit?: string | null;
-  avi?: string | null;
+  test: string;
+  amit: string;
+  avi: string;
   username: string;
   password: string;
   roles: InputJsonValue;

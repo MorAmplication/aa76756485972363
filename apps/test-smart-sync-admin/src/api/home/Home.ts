@@ -6,9 +6,9 @@ export type Home = {
   createdAt: Date;
   updatedAt: Date;
   user?: User | null;
-  test: string | null;
-  amit: string | null;
-  avi: string | null;
+  test: string;
+  amit: string;
+  avi: string;
   username: string;
   roles: JsonValue;
 };

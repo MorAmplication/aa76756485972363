@@ -54,37 +54,28 @@ class Home {
   user?: User | null;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  test!: string | null;
+  @Field(() => String)
+  test!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  amit!: string | null;
+  @Field(() => String)
+  amit!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  avi!: string | null;
+  @Field(() => String)
+  avi!: string;
 
   @ApiProperty({
     required: true,
