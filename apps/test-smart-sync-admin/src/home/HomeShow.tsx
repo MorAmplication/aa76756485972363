@@ -19,6 +19,11 @@ export const HomeShow = (props: ShowProps): React.ReactElement => {
         <ReferenceField label="User" source="user.id" reference="User">
           <TextField source={USER_TITLE_FIELD} />
         </ReferenceField>
+        <TextField label="Test" source="test" />
+        <TextField label="Amit" source="amit" />
+        <TextField label="Avi" source="avi" />
+        <TextField label="Username" source="username" />
+        <TextField label="Roles" source="roles" />
       </SimpleShowLayout>
     </Show>
   );

@@ -67,6 +67,12 @@ export class HomeControllerBase {
             id: true,
           },
         },
+
+        test: true,
+        amit: true,
+        avi: true,
+        username: true,
+        roles: true,
       },
     });
   }
@@ -97,6 +103,12 @@ export class HomeControllerBase {
             id: true,
           },
         },
+
+        test: true,
+        amit: true,
+        avi: true,
+        username: true,
+        roles: true,
       },
     });
   }
@@ -128,6 +140,12 @@ export class HomeControllerBase {
             id: true,
           },
         },
+
+        test: true,
+        amit: true,
+        avi: true,
+        username: true,
+        roles: true,
       },
     });
     if (result === null) {
@@ -176,6 +194,12 @@ export class HomeControllerBase {
               id: true,
             },
           },
+
+          test: true,
+          amit: true,
+          avi: true,
+          username: true,
+          roles: true,
         },
       });
     } catch (error) {
@@ -215,6 +239,12 @@ export class HomeControllerBase {
               id: true,
             },
           },
+
+          test: true,
+          amit: true,
+          avi: true,
+          username: true,
+          roles: true,
         },
       });
     } catch (error) {

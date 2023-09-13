@@ -11,9 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { PrismaService } from "../../prisma/prisma.service";
 import { Prisma, Home, User } from "@prisma/client";
+import { PasswordService } from "../../auth/password.service";
+import { transformStringFieldUpdateInput } from "../../prisma.util";
 
 export class HomeServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly passwordService: PasswordService
+  ) {}
 
   async count<T extends Prisma.HomeCountArgs>(
     args: Prisma.SelectSubset<T, Prisma.HomeCountArgs>
@@ -34,12 +39,32 @@ export class HomeServiceBase {
   async create<T extends Prisma.HomeCreateArgs>(
     args: Prisma.SelectSubset<T, Prisma.HomeCreateArgs>
   ): Promise<Home> {
-    return this.prisma.home.create<T>(args);
+    return this.prisma.home.create<T>({
+      ...args,
+
+      data: {
+        ...args.data,
+        password: await this.passwordService.hash(args.data.password),
+      },
+    });
   }
   async update<T extends Prisma.HomeUpdateArgs>(
     args: Prisma.SelectSubset<T, Prisma.HomeUpdateArgs>
   ): Promise<Home> {
-    return this.prisma.home.update<T>(args);
+    return this.prisma.home.update<T>({
+      ...args,
+
+      data: {
+        ...args.data,
+
+        password:
+          args.data.password &&
+          (await transformStringFieldUpdateInput(
+            args.data.password,
+            (password) => this.passwordService.hash(password)
+          )),
+      },
+    });
   }
   async delete<T extends Prisma.HomeDeleteArgs>(
     args: Prisma.SelectSubset<T, Prisma.HomeDeleteArgs>

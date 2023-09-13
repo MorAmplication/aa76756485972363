@@ -229,6 +229,10 @@ export class UserControllerBase {
             id: true,
           },
         },
+
+        test: true,
+        amit: true,
+        avi: true,
       },
     });
     if (results === null) {
