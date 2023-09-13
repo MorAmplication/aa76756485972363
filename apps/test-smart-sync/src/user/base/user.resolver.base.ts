@@ -26,6 +26,8 @@ import { UserCountArgs } from "./UserCountArgs";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { User } from "./User";
+import { HomeFindManyArgs } from "../../home/base/HomeFindManyArgs";
+import { Home } from "../../home/base/Home";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => User)
@@ -130,5 +132,25 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Home], { name: "homes" })
+  @nestAccessControl.UseRoles({
+    resource: "Home",
+    action: "read",
+    possession: "any",
+  })
+  async resolveFieldHomes(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: HomeFindManyArgs
+  ): Promise<Home[]> {
+    const results = await this.service.findHomes(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

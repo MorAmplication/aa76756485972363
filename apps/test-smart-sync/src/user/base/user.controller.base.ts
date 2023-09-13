@@ -27,6 +27,9 @@ import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserUpdateInput } from "./UserUpdateInput";
 import { User } from "./User";
+import { HomeFindManyArgs } from "../../home/base/HomeFindManyArgs";
+import { Home } from "../../home/base/Home";
+import { HomeWhereUniqueInput } from "../../home/base/HomeWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -199,5 +202,106 @@ export class UserControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/homes")
+  @ApiNestedQuery(HomeFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Home",
+    action: "read",
+    possession: "any",
+  })
+  async findManyHomes(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<Home[]> {
+    const query = plainToClass(HomeFindManyArgs, request.query);
+    const results = await this.service.findHomes(params.id, {
+      ...query,
+      select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/homes")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectHomes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: HomeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      homes: {
+        connect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/homes")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updateHomes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: HomeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      homes: {
+        set: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/homes")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectHomes(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: HomeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      homes: {
+        disconnect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }
