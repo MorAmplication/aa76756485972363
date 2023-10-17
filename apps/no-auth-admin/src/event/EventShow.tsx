@@ -22,7 +22,6 @@ export const EventShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Start Date" source="startDate" />
         <TextField label="End Date" source="endDate" />
         <TextField label="Location" source="location" />
-        <TextField label="check" source="check" />
         <ReferenceManyField
           reference="Session"
           target="eventId"

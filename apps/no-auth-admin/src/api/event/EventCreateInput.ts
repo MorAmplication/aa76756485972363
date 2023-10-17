@@ -7,5 +7,4 @@ export type EventCreateInput = {
   endDate: Date;
   location: string;
   sessions?: SessionCreateNestedManyWithoutEventsInput;
-  check?: string | null;
 };

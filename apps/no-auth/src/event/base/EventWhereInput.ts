@@ -16,7 +16,6 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { SessionListRelationFilter } from "../../session/base/SessionListRelationFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
 class EventWhereInput {
@@ -97,17 +96,6 @@ class EventWhereInput {
     nullable: true,
   })
   sessions?: SessionListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  check?: StringNullableFilter;
 }
 
 export { EventWhereInput as EventWhereInput };

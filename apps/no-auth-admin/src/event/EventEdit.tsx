@@ -29,7 +29,6 @@ export const EventEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={SessionTitle} />
         </ReferenceArrayInput>
-        <TextInput label="check" source="check" />
       </SimpleForm>
     </Edit>
   );
