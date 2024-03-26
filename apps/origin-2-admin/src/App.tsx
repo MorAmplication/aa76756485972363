@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { AmitList } from "./amit/AmitList";
+import { AmitCreate } from "./amit/AmitCreate";
+import { AmitEdit } from "./amit/AmitEdit";
+import { AmitShow } from "./amit/AmitShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="Amit"
+          list={AmitList}
+          edit={AmitEdit}
+          create={AmitCreate}
+          show={AmitShow}
+        />
+      </Admin>
     </div>
   );
 };
