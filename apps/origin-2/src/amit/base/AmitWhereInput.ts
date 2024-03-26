@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, IsEnum } from "class-validator";
+import { EnumAmitEnumGender } from "./EnumAmitEnumGender";
 
 @InputType()
 class AmitWhereInput {
@@ -27,6 +28,17 @@ class AmitWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumAmitEnumGender,
+  })
+  @IsEnum(EnumAmitEnumGender)
+  @IsOptional()
+  @Field(() => EnumAmitEnumGender, {
+    nullable: true,
+  })
+  enumGender?: "Male" | "Female";
 }
 
 export { AmitWhereInput as AmitWhereInput };

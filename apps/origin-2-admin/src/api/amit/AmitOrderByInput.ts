@@ -4,4 +4,5 @@ export type AmitOrderByInput = {
   id?: SortOrder;
   createdAt?: SortOrder;
   updatedAt?: SortOrder;
+  enumGender?: SortOrder;
 };
