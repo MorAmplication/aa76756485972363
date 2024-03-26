@@ -1,11 +1,21 @@
 import * as React from "react";
-import { Edit, SimpleForm, EditProps } from "react-admin";
+import { Edit, SimpleForm, EditProps, SelectInput } from "react-admin";
 
 export const AmitEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <div />
+        <SelectInput
+          source="enumGender"
+          label="enumGender"
+          choices={[
+            { label: "male", value: "Male" },
+            { label: "female", value: "Female" },
+          ]}
+          optionText="label"
+          allowEmpty
+          optionValue="value"
+        />
       </SimpleForm>
     </Edit>
   );

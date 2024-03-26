@@ -9,23 +9,22 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-import { InputType, Field } from "@nestjs/graphql";
+import { ArgsType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { EnumAmitEnumGender } from "./EnumAmitEnumGender";
-import { IsEnum, IsOptional } from "class-validator";
+import { AmitCreateInput } from "./AmitCreateInput";
+import { ValidateNested } from "class-validator";
+import { Type } from "class-transformer";
 
-@InputType()
-class AmitUpdateInput {
+@ArgsType()
+class CreateAmitArgs {
   @ApiProperty({
-    required: false,
-    enum: EnumAmitEnumGender,
+    required: true,
+    type: () => AmitCreateInput,
   })
-  @IsEnum(EnumAmitEnumGender)
-  @IsOptional()
-  @Field(() => EnumAmitEnumGender, {
-    nullable: true,
-  })
-  enumGender?: "Male" | "Female" | null;
+  @ValidateNested()
+  @Type(() => AmitCreateInput)
+  @Field(() => AmitCreateInput, { nullable: false })
+  data!: AmitCreateInput;
 }
 
-export { AmitUpdateInput as AmitUpdateInput };
+export { CreateAmitArgs as CreateAmitArgs };

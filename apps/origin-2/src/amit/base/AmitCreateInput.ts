@@ -9,5 +9,23 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class AmitCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { EnumAmitEnumGender } from "./EnumAmitEnumGender";
+import { IsEnum, IsOptional } from "class-validator";
+
+@InputType()
+class AmitCreateInput {
+  @ApiProperty({
+    required: false,
+    enum: EnumAmitEnumGender,
+  })
+  @IsEnum(EnumAmitEnumGender)
+  @IsOptional()
+  @Field(() => EnumAmitEnumGender, {
+    nullable: true,
+  })
+  enumGender?: "Male" | "Female" | null;
+}
+
 export { AmitCreateInput as AmitCreateInput };

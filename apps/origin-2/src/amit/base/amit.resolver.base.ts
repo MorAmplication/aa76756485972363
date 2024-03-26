@@ -17,6 +17,8 @@ import { Amit } from "./Amit";
 import { AmitCountArgs } from "./AmitCountArgs";
 import { AmitFindManyArgs } from "./AmitFindManyArgs";
 import { AmitFindUniqueArgs } from "./AmitFindUniqueArgs";
+import { CreateAmitArgs } from "./CreateAmitArgs";
+import { UpdateAmitArgs } from "./UpdateAmitArgs";
 import { DeleteAmitArgs } from "./DeleteAmitArgs";
 import { AmitService } from "../amit.service";
 @graphql.Resolver(() => Amit)
@@ -44,6 +46,31 @@ export class AmitResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => Amit)
+  async createAmit(@graphql.Args() args: CreateAmitArgs): Promise<Amit> {
+    return await this.service.createAmit({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => Amit)
+  async updateAmit(@graphql.Args() args: UpdateAmitArgs): Promise<Amit | null> {
+    try {
+      return await this.service.updateAmit({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => Amit)

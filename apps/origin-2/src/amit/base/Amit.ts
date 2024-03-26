@@ -11,8 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsDate } from "class-validator";
+import { IsString, IsDate, IsEnum, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { EnumAmitEnumGender } from "./EnumAmitEnumGender";
 
 @ObjectType()
 class Amit {
@@ -39,6 +40,17 @@ class Amit {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumAmitEnumGender,
+  })
+  @IsEnum(EnumAmitEnumGender)
+  @IsOptional()
+  @Field(() => EnumAmitEnumGender, {
+    nullable: true,
+  })
+  enumGender?: "Male" | "Female" | null;
 }
 
 export { Amit as Amit };

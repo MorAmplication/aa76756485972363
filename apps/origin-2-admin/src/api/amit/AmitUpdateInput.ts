@@ -1,1 +1,3 @@
-export type AmitUpdateInput = {};
+export type AmitUpdateInput = {
+  enumGender?: "Male" | "Female" | null;
+};
