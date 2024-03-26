@@ -40,7 +40,8 @@ class CreateInput {
     @Field(() => [EnumColor])
     @ApiProperty({
         required: true,
-        type: () => [EnumColor]
+        enum: EnumColor,
+        isArray: true
     })
     color!: "green" | "red" | "blue" | "purple"[];
 }
