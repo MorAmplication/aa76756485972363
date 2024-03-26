@@ -37,12 +37,13 @@ class CreateInput {
     @Type(() => String)
     address!: string;
 
-    @Field(() => EnumColor)
+    @Field(() => [EnumColor])
     @ApiProperty({
         required: true,
-        enum: EnumColor
+        enum: EnumColor,
+        isArray: true
     })
-    color!: "green" | "red" | "blue" | "purple";
+    color!: "green" | "red" | "blue" | "purple"[];
 }
 
 export { CreateInput as CreateInput };
