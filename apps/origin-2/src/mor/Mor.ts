@@ -29,12 +29,12 @@ class Mor {
     @Type(() => String)
     age!: string;
 
-    @Field(() => [EnumColor])
+    @Field(() => EnumColor)
     @ApiProperty({
         required: true,
-        type: () => [EnumColor]
+        enum: EnumColor
     })
-    color!: "green" | "red" | "blue" | "purple"[];
+    color!: "green" | "red" | "blue" | "purple";
 }
 
 export { Mor as Mor };
