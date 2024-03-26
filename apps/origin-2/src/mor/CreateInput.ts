@@ -1,6 +1,7 @@
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
+import { EnumColor } from "./EnumColor";
 
 @InputType("CreateInputInput")
 class CreateInput {
@@ -35,6 +36,13 @@ class CreateInput {
     })
     @Type(() => String)
     address!: string;
+
+    @Field(() => EnumColor)
+    @ApiProperty({
+        required: true,
+        enum: EnumColor
+    })
+    color!: "green" | "red" | "blue" | "purple";
 }
 
 export { CreateInput as CreateInput };
