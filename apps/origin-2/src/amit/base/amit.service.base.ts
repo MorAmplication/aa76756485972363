@@ -15,16 +15,14 @@ import { Prisma, Amit as PrismaAmit } from "@prisma/client";
 export class AmitServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
-  async count<T extends Prisma.AmitCountArgs>(
-    args: Prisma.SelectSubset<T, Prisma.AmitCountArgs>
-  ): Promise<number> {
+  async count(args: Omit<Prisma.AmitCountArgs, "select">): Promise<number> {
     return this.prisma.amit.count(args);
   }
 
   async amits<T extends Prisma.AmitFindManyArgs>(
     args: Prisma.SelectSubset<T, Prisma.AmitFindManyArgs>
   ): Promise<PrismaAmit[]> {
-    return this.prisma.amit.findMany(args);
+    return this.prisma.amit.findMany<Prisma.AmitFindManyArgs>(args);
   }
   async amit<T extends Prisma.AmitFindUniqueArgs>(
     args: Prisma.SelectSubset<T, Prisma.AmitFindUniqueArgs>

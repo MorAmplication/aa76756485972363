@@ -9,6 +9,10 @@ import { AmitList } from "./amit/AmitList";
 import { AmitCreate } from "./amit/AmitCreate";
 import { AmitEdit } from "./amit/AmitEdit";
 import { AmitShow } from "./amit/AmitShow";
+import { WithoutDtoList } from "./withoutDto/WithoutDtoList";
+import { WithoutDtoCreate } from "./withoutDto/WithoutDtoCreate";
+import { WithoutDtoEdit } from "./withoutDto/WithoutDtoEdit";
+import { WithoutDtoShow } from "./withoutDto/WithoutDtoShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -41,6 +45,13 @@ const App = (): React.ReactElement => {
           edit={AmitEdit}
           create={AmitCreate}
           show={AmitShow}
+        />
+        <Resource
+          name="WithoutDto"
+          list={WithoutDtoList}
+          edit={WithoutDtoEdit}
+          create={WithoutDtoCreate}
+          show={WithoutDtoShow}
         />
       </Admin>
     </div>

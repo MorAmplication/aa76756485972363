@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { AmitModule } from "./amit/amit.module";
+import { WithoutDtoModule } from "./withoutDto/withoutDto.module";
 import { MorModule } from "./Mor/mor.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
@@ -14,6 +15,7 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
   controllers: [],
   imports: [
     AmitModule,
+    WithoutDtoModule,
     MorModule,
     HealthModule,
     PrismaModule,
